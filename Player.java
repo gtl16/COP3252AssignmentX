@@ -20,7 +20,10 @@ public class Player {
     public void getHandSize() {
         return hand.size();
     }
-
+    
+    public void clearHead() {
+        hand = new ArrayList<Card>();
+    }
     public int sumHand() {
         int sum = 0;
 
@@ -34,7 +37,7 @@ public class Player {
                || c.getValue().startsWith("7")
                || c.getValue().startsWith("8")
                || c.getValue().startsWith("9")) {
-                  sum += c.getValue().charAt(0);
+                  sum += Integer.parseInt(String.valueOf(c.getValue().charAt(0)));
             } else if(c.getValue().startsWith("wild")) {
                 sum += 50;
 
