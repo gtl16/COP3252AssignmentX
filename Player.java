@@ -21,7 +21,7 @@ public class Player {
         return hand.size();
     }
     
-    public void clearHead() {
+    public void clearHand() {
         hand = new ArrayList<Card>();
     }
     public int sumHand() {
