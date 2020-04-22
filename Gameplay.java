@@ -122,7 +122,7 @@ public class Gameplay
                playerScores[i] += players[p].sumHand();
                
                if(playerScores[i] >= 500) {
-                   players[i].setWinner(true);
+                   players[i].setPlayerWon(true);
                }
                if(i == 0) {
                    players[i] = new Human();
