@@ -124,19 +124,19 @@ public class Gameplay
                if(playerScores[i] >= 500) {
                    return players[i];
                }
-             if(i == 0) {
-                 players[i] = new Human();
-             } else {
-                 players[i] = new Computer();     
-             }
-              
-             drawPile = new Stack<Card>();
-             createDrawPile();
-             drawPile = shuffleDrawPile();
-             discardPile = new ArrayList<Card>();
-             discardPile.add(dealCard());
-             dealFirstHands();
+               if(i == 0) {
+                   players[i] = new Human();
+               } else {
+                   players[i] = new Computer();     
+               }
            }
+          
+           drawPile = new Stack<Card>();
+           createDrawPile();
+           drawPile = shuffleDrawPile();
+           discardPile = new ArrayList<Card>();
+           discardPile.add(dealCard());
+           dealFirstHands();
        }
    }
 }
