@@ -102,7 +102,7 @@ public class Gameplay
        return discardPile[discardPile.size() - 1];
    }
 
-   public Player conductTurn(Player p) {
+   public void conductTurn(Player p) {
        if(p instanceof Computer) {
            while(!p.makeMove(getTopOfDiscardPile) && !isDrawPileEmpty()){
                p.addCardToHand(dealCard());
@@ -122,7 +122,7 @@ public class Gameplay
                playerScores[i] += players[p].sumHand();
                
                if(playerScores[i] >= 500) {
-                   return players[i];
+                   players[i].setWinner(true);
                }
                if(i == 0) {
                    players[i] = new Human();
