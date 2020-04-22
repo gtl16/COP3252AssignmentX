@@ -120,11 +120,22 @@ public class Gameplay
        if(p.getSaysUno) {
            for(int i = 0; i < players.length; ++i) {
                playerScores[i] += players[p].sumHand();
-
+               
                if(playerScores[i] >= 500) {
                    return players[i];
                }
-
+             if(i == 0) {
+                 players[i] = new Human();
+             } else {
+                 players[i] = new Computer();     
+             }
+              
+             drawPile = new Stack<Card>();
+             createDrawPile();
+             drawPile = shuffleDrawPile();
+             discardPile = new ArrayList<Card>();
+             discardPile.add(dealCard());
+             dealFirstHands();
            }
        }
    }
