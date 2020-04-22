@@ -9,7 +9,10 @@ public class Gameplay
 
    public Gameplay(int numPlayers) {
        drawPile = new Stack<Card>();
+       createDrawPile();
+       drawPile = shuffleDrawPile();
        discardPile = new ArrayList<Card>();
+       discardPile.add(dealCard());
        players = new Player[numPlayers];
        playerScores = new int[numPlayers];
        players[0] = new Human();
@@ -19,6 +22,9 @@ public class Gameplay
            players[i] = new Computer();
            playerScores[i] = 0;
        }
+       
+      dealFirstHands();
+      
    }
 
    public void createDrawPile() {
@@ -42,7 +48,7 @@ public class Gameplay
            drawPile.add(new Card("skip" + color + "2", 5, 5));
            drawPile.add(newCard("p2" + color + "2", 5, 5));
 
-           for(int j = 0; j < 10; ++i) {
+           for(int j = 0; j < 10; ++j) {
                drawPile.add(new Card(j + color, 5, 5));
 
                if(j != 0) {
@@ -67,7 +73,7 @@ public class Gameplay
            drawPile.remove(index);
        }
 
-       return newDrawPile();
+       return newDrawPile;
    }
 
    public void dealFirstHands() {
